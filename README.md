@@ -9,9 +9,9 @@ var json = jQuery("myForm").serializeArray()
 This will produce an object of the form
 ```JavaScript
 json = [ 
-            {"name":"player.firstName", "value":"Saulius"},
-            {"name":"player.lastName", "value":"TheBlack"},
-        ];
+	{"name":"player.firstName", "value":"Saulius"},
+	{"name":"player.lastName", "value":"TheBlack"},
+];
 ```
 In the provided example, the form has 2 text inputs with the names player.firstName and player.lastName
 
@@ -19,35 +19,35 @@ if you want to create json that is less flat, and somewhat more verbose you can 
 you can also use this library, that will create the following json for you:
 ```JavaScript
 json = { 
-			"player" : {
-				"firstName":"Saulius",
-				"lastName":"TheBlack",
-			}
-        };
+	"player" : {
+		"firstName":"Saulius",
+		"lastName":"TheBlack",
+	}
+};
 ```
 
 if there are numbers included in the naming, the parser will convert it to a list:
 ```JavaScript
 json = [ 
-            {"name":"players.0.firstName", "value":"Saulius"},
-            {"name":"players.0.lastName", "value":"TheBlack"},
-			{"name":"players.1.firstName", "value":"Gandalf"},
-            {"name":"players.1.lastName", "value":"TheWhite"},
-        ];
+	{"name":"players.0.firstName", "value":"Saulius"},
+	{"name":"players.0.lastName", "value":"TheBlack"},
+	{"name":"players.1.firstName", "value":"Gandalf"},
+	{"name":"players.1.lastName", "value":"TheWhite"},
+];
 ```
 
 ```JavaScript
 json = { 
-			"players" : [
-				{
-					"firstName":"Saulius",
-					"lastName":"TheBlack",
-				},
-				{
-					"firstName":"Gandalf",
-					"lastName":"TheWhite",
-				}
-			
-			]
-        };
+	"players" : [
+		{
+			"firstName":"Saulius",
+			"lastName":"TheBlack",
+		},
+		{
+			"firstName":"Gandalf",
+			"lastName":"TheWhite",
+		}
+	
+	]
+};
 ```
