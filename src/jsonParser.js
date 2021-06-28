@@ -1,9 +1,10 @@
 function parseJsonFromForm(flatJsonArray){
     let json = {};
     // console.log(flatJsonArray[0]);
-    jQuery.each(flatJsonArray, function() {
-        json = parseNestedJson(this.name, this.value, json);
-    });
+	flatJsonArray.forEach(function(elementInArray) {
+		json = parseNestedJson(elementInArray.name, elementInArray.value, json);
+	});
+    
     // console.log(json);   
     return json;
 }
@@ -33,4 +34,8 @@ function parseNestedJson(childNameString, value, parentJson){
         // console.log(parentJson);
     }    
     return parentJson;
+}
+
+module.exports = {
+    parseJsonFromForm: parseJsonFromForm,
 }

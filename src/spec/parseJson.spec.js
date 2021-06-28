@@ -1,4 +1,4 @@
-
+const parser = require("../jsonParser.js");
 describe('parsing json', ()=>{
     it('should add a top level item if the name does not contain a dot', ()=>{
         let flatArrayJson = [ //the way a form gets serialized
@@ -6,7 +6,7 @@ describe('parsing json', ()=>{
             "value":"Peter"},
         ];
 
-        let json = parseJsonFromForm(flatArrayJson);
+        let json = parser.parseJsonFromForm(flatArrayJson);
      
       expect(json["firstName"]).toBe("Peter");
       
@@ -20,7 +20,7 @@ describe('parsing json', ()=>{
             "value":"De Coninck"},
         ];
 
-        let json = parseJsonFromForm(flatArrayJson);
+        let json = parser.parseJsonFromForm(flatArrayJson);
      
       expect(json["firstName"]).toBe("Peter");
       expect(json["lastName"]).toBe("De Coninck");
@@ -35,7 +35,7 @@ describe('parsing json', ()=>{
             "value":"Peter"}
         ];
 
-        let json = parseJsonFromForm(flatArrayJson);
+        let json = parser.parseJsonFromForm(flatArrayJson);
      
       expect(json["attendee"].constructor).toBe(Object);
       expect(json["attendee"]["firstName"]).toBe("Peter");
@@ -50,7 +50,7 @@ describe('parsing json', ()=>{
             "value":"De Coninck"}
         ];
 
-        let json = parseJsonFromForm(flatArrayJson);
+        let json = parser.parseJsonFromForm(flatArrayJson);
      
       expect(json["attendee"].constructor).toBe(Object);
       expect(json["attendee"]["firstName"]).toBe("Peter");
@@ -64,7 +64,7 @@ describe('parsing json', ()=>{
             "value":"Peter"},
         ];
 
-        let json = parseJsonFromForm(flatArrayJson);
+        let json = parser.parseJsonFromForm(flatArrayJson);
      
         expect(json["attendees"].constructor).toBe(Object);
         expect(json["attendees"]["first"].constructor).toBe(Object);
@@ -79,7 +79,7 @@ describe('parsing json', ()=>{
             "value":"De Coninck"},
         ];
 
-        let json = parseJsonFromForm(flatArrayJson);
+        let json = parser.parseJsonFromForm(flatArrayJson);
      
         expect(json["attendees"].constructor).toBe(Object);
         expect(json["attendees"]["first"].constructor).toBe(Object);
@@ -100,7 +100,7 @@ describe('parsing json', ()=>{
             "value":"Plateus"},
         ];
 
-        let json = parseJsonFromForm(flatArrayJson);
+        let json = parser.parseJsonFromForm(flatArrayJson);
      
         expect(json["attendees"].constructor).toBe(Object);
         expect(json["attendees"]["first"].constructor).toBe(Object);
@@ -118,7 +118,7 @@ describe('parsing json', ()=>{
             "value":"Peter"},
         ];
 
-        let json = parseJsonFromForm(flatArrayJson);
+        let json = parser.parseJsonFromForm(flatArrayJson);
      
         expect(Array.isArray(json["attendees"])).toBe(true);
         // console.log(json["attendees"][0]);
@@ -135,7 +135,7 @@ describe('parsing json', ()=>{
             "value":"De Coninck"},
         ];
 
-        let json = parseJsonFromForm(flatArrayJson);
+        let json = parser.parseJsonFromForm(flatArrayJson);
      
         expect(Array.isArray(json["attendees"])).toBe(true);
         // console.log(json["attendees"][0]);
@@ -153,7 +153,7 @@ describe('parsing json', ()=>{
             "value":"Ellen"},
         ];
 
-        let json = parseJsonFromForm(flatArrayJson);
+        let json = parser.parseJsonFromForm(flatArrayJson);
      
         expect(Array.isArray(json["attendees"])).toBe(true);
         // console.log(json["attendees"][0]);
