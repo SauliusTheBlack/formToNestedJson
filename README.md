@@ -18,6 +18,7 @@ In the provided example, the form has 2 text inputs with the names player.firstN
 if you want to create json that is less flat, and somewhat more verbose you can manually go around and do it everytime yourself.
 you can also use this library, that will create the following json for you:
 ```JavaScript
+json = parseJsonFromForm(jQuery(formId).serializeArray());
 json = { 
 	"player" : {
 		"firstName":"Saulius",
@@ -37,6 +38,7 @@ json = [
 ```
 
 ```JavaScript
+json = parseJsonFromForm(jQuery(formId).serializeArray());
 json = { 
 	"players" : [
 		{
